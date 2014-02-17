@@ -12,6 +12,7 @@
 // -------------------------------------
 
 var chanLogos = "/usr/share/vdr-skins/logos4nOpacity";
+// var chanLogos = "/usr/share/vdr/plugins/skinnopacity/logos";
 var varEPGimagesPath_1 = "/var/cache/vdr/epgimages/";
 var varEPGimagesPath_2 = "/video0/epgimages/";
 

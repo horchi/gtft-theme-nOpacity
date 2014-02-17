@@ -28,6 +28,7 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
 
 // #define WEATHER
 // #define P4
+// #define SYSINFO
 
 //***************************************************************************
 // Theme Style
@@ -131,6 +132,21 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
 
    Text text={p4.varPuffertemperaturunten_0x78Value}°C / {p4.varPuffertemperaturoben_0x76Value}°C,color={lightColor},size=28,x=1070,width=285,height=40,delay=10;
    Text text={p4.varStatusText},color={lightColor},size=30,height=45,x=1070,width=285,dots=yes,delay=10;
+
+#endif
+
+#ifdef SYSINFO
+
+   VariableFile name=sys,file=/tmp/sysinfo.txt,delay=10;
+
+   Text text=Sysinfo {sys.varTime/%d. %b %H:%M},size=18,color={lightColor},x=1070,y=125,width=260,height=30;
+   Text text=CPU Temp: {sys.varCPUTempKombiValue} °C,color={lightColor},size=18,x=1070,width=260,height=28;
+   Text text=GPU Temp: {sys.varGPUTempKombiValue} °C,color={lightColor},size=18,x=1070,width=260,height=28;
+   Text text=PCH Temp: {sys.varCHIPTempKombiValue} °C,color={lightColor},size=18,x=1070,width=260,height=28;
+   Text text=CPU: {sys.varCPUBusyKombiValue} %,color={lightColor},size=18,x=1070,width=260,height=28;
+   Text text=RAM frei: {sys.varMemFreeKombiValue} MB,color={lightColor},size=18,x=1070,width=260,height=28;
+   Text text=Disk frei: {sys.varVideoFreeKombiValue} GB,color={lightColor},size=18,x=1070,width=260,height=28;
+   Text text=Kernel: {sys.varKernelKombiValue},color={lightColor},size=18,x=1070,width=260,height=28;
 
 #endif
 

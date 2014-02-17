@@ -70,7 +70,7 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
 #ifdef DARK_BLUE_PLAIN
 
    // ------------------------
-   // dark blue
+   // dark blue plain
 
    var selColor = "255:255:255:255";
    var unselColor = "200:200:200:255";

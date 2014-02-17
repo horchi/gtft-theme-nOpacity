@@ -23,6 +23,13 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
 #define DARK_BLUE
 // #define DARK_BLUE_PLAIN
 
+
+// -------------------------------------
+// select if you want a small mute icon
+// -------------------------------------
+
+// #define SMALL_MUTE
+
 // -------------------------------------
 // activate if you have the Hardware
 // -------------------------------------
@@ -140,7 +147,12 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
    Volumebar condition={volumeMute} = 0,x=40,y=385,width=1280,height=110,switch=yes,bg_red=100,bg_green=100,bg_blue=100,permanent=no,delay=3;
    Volumebar condition={volumeMute} = 0,x=30,y=400,width=1300,bg_x=30,bg_y=260,bg_width=1300,path2=backgrounds/volume.png,permanent=no,delay=3;
    Volumebar condition={volumeMute} = 0,text=percent,size=50,color=0:0:0,x=500,y=365,permanent=no,delay=3;
+
+#ifdef SMALL_MUTE
+   VolumeMuteSymbol x=1077,y=673,width=90,height=90,fit=yes,pathON={symbols}/mute_on.png,permanent=yes;
+#else   
    VolumeMuteSymbol x=380,y=80,pathON={symbols}/mute_on.png,permanent=yes;
+#endif
   
 //***************************************************************************
 // Normal TV/Radio View  (svdrpsend PLUG graphtft VIEW Standard)

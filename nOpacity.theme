@@ -230,10 +230,10 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
    Text text={followingStartTime/%H:%M},x=5,y=390,width=165,height=65,size=42,color={lightColor};
    Text text={followingDuration}',x=175,y=410,width=85,height=45,size=26,color={lightColor};
 
-   Text text={followingTitle},id=fTitle,x=260,y=385,width=800,height=295,size=42,color={lightColor},on_click=Schedule Yellow Yellow Info;
-   Text text={followingSubtitle},id=fSubTitle,x=260,y=385+{fTitle.height},height=295-{fTitle.height},width=800,size=32,color={lightColor};
+   Text text={followingTitle},id=fTitle,x=260,y=385,width=800,height=295,size=42,color={TitleColor},on_click=Schedule Yellow Yellow Info;
+   Text text={followingSubtitle},id=fSubTitle,x=260,y=385+{fTitle.height},height=295-{fTitle.height},width=800,size=32,color={SubtitleColor};
    Text text={followingDescription},id=fDesc,x=260,y=385+{fTitle.height}+{fSubTitle.height},
-         height=295-{fTitle.height}-{fSubTitle.height},color=255:236:139,width=800,size=26,dots=yes;
+         height=295-{fTitle.height}-{fSubTitle.height},color={DescriptionColor},width=800,size=26,dots=yes;
 
    // EPG Bild   
 

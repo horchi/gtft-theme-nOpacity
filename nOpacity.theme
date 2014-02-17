@@ -59,7 +59,7 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
    var ptLineColor = "100:150:250:255";
    var TitleColor = "255:255:255:255";
    var SubtitleColor = "255:255:255:255";
-   var DescriptionColor = "200:200:200";
+   var DescriptionColor = "255:236:139";
 
    var symbols = "symbols";
    var menuBackground = "menu.darkblue";
@@ -84,7 +84,7 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
    var ptLineColor = "100:150:250:255";
    var TitleColor = "255:255:255:255";
    var SubtitleColor = "255:255:255:255";
-   var DescriptionColor = "255:236:139";
+   var DescriptionColor = "200:200:200";
 
    var symbols = "symbols";
    var menuBackground = "menu.darkblue_plain";

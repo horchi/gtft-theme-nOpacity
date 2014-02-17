@@ -21,6 +21,7 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
 
 // #define LIGHT_BLUE
 #define DARK_BLUE
+// #define DARK_BLUE_PLAIN
 
 // -------------------------------------
 // activate if you have the Hardware
@@ -49,10 +50,38 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
    var signalColor = "255:55:55:255";
    var boxColor = "160:160:160:255";
    var ptLineColor = "100:150:250:255";
+   var TitleColor = "255:255:255:255";
+   var SubtitleColor = "255:255:255:255";
+   var DescriptionColor = "200:200:200";
 
    var symbols = "symbols";
    var menuBackground = "menu.darkblue";
    var backgrounds = "backgrounds.darkblue";
+
+#endif
+
+#ifdef DARK_BLUE_PLAIN
+
+   // ------------------------
+   // dark blue
+
+   var selColor = "255:255:255:255";
+   var unselColor = "200:200:200:255";
+   var menuTitleColor = "255:255:255:255";
+   var tdColor = "255:255:255:255";
+   var tdMainColor = "200:200:200:255";
+   var textColor = "180:180:180:255";
+   var lightColor = "255:255:255:255";
+   var signalColor = "255:55:55:255";
+   var boxColor = "160:160:160:255";
+   var ptLineColor = "100:150:250:255";
+   var TitleColor = "255:255:255:255";
+   var SubtitleColor = "255:255:255:255";
+   var DescriptionColor = "255:236:139";
+
+   var symbols = "symbols";
+   var menuBackground = "menu.darkblue_plain";
+   var backgrounds = "backgrounds.darkblue_plain";
 
 #endif
 
@@ -71,6 +100,9 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
    var signalColor = "255:55:55:255";
    var boxColor = "255:203:12:255";
    var ptLineColor = "100:150:250:255";
+   var TitleColor = "255:255:255:255";
+   var SubtitleColor = "255:255:255:255";
+   var DescriptionColor = "255:236:139";
 
    var symbols = "symbols"
    var backgrounds = "backgrounds.lightblue"
@@ -169,10 +201,10 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
    Text text={presentStartTime/%H:%M},x=5,y=85,width=165,height=65,size=42,color={lightColor};
    Text text={presentRemaining}',x=175,y=105,width=85,height=45,size=26,delay=60,color={lightColor};
 
-   Text text={presentTitle},id=pTitle,x=260,y=82,width=800,height=295,size=42,color={lightColor},on_click=Schedule Info;
-   Text text={presentSubtitle},id=pSubTitle,x=260,y=82+{pTitle.height},height=295-{pTitle.height},color={lightColor},width=800,size=32;
+   Text text={presentTitle},id=pTitle,x=260,y=82,width=800,height=295,size=42,color={TitleColor},on_click=Schedule Info;
+   Text text={presentSubtitle},id=pSubTitle,x=260,y=82+{pTitle.height},height=295-{pTitle.height},color={SubtitleColor},width=800,size=32;
    Text text={presentDescription},id=pDesc,x=260,y=82+{pTitle.height}+{pSubTitle.height},
-         height=295-{pTitle.height}-{pSubTitle.height},color=255:236:139,width=800,size=26,dots=yes;
+         height=295-{pTitle.height}-{pSubTitle.height},color={DescriptionColor},width=800,size=26,dots=yes;
 
    // EPG Bild 
 

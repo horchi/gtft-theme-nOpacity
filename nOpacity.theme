@@ -283,7 +283,7 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
    // pending timer
 
    TextList condition={actTimersRunning} = 0,id=pList,text={actTimersStart/%a %H:%M}  -  {actTimersStop/ %H:%M}@{actTimersTitle},lines=2,
-       x=1076,y={rList.Height}+397,height=264-{rList.Height},width=275,size=20;
+       x=1076,y={rList.Height}+397,height=264-{rList.Height},width=275,size=20,overlay=yes;
 
    // Datum/Uhr unten rechts
 

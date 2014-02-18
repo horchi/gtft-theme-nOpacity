@@ -13,6 +13,7 @@
 
 var chanLogos = "/usr/share/vdr-skins/logos4nOpacity";
 // var chanLogos = "/usr/share/vdr/plugins/skinnopacity/logos";
+
 var varEPGimagesPath_1 = "/var/cache/vdr/epgimages/";
 var varEPGimagesPath_2 = "/video0/epgimages/";
 
@@ -58,9 +59,9 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
    var signalColor = "255:55:55:255";
    var boxColor = "160:160:160:255";
    var ptLineColor = "100:150:250:255";
-   var TitleColor = "255:255:255:255";
-   var SubtitleColor = "255:255:255:255";
-   var DescriptionColor = "255:236:139";
+   var titleColor = "255:255:255:255";
+   var subtitleColor = "255:255:255:255";
+   var descriptionColor = "255:236:139";
 
    var symbols = "symbols";
    var menuBackground = "menu.darkblue";
@@ -83,9 +84,9 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
    var signalColor = "255:55:55:255";
    var boxColor = "160:160:160:255";
    var ptLineColor = "100:150:250:255";
-   var TitleColor = "255:255:255:255";
-   var SubtitleColor = "255:255:255:255";
-   var DescriptionColor = "200:200:200";
+   var titleColor = "255:255:255:255";
+   var subtitleColor = "255:255:255:255";
+   var descriptionColor = "200:200:200";
 
    var symbols = "symbols";
    var menuBackground = "menu.darkblue_plain";
@@ -108,9 +109,9 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
    var signalColor = "255:55:55:255";
    var boxColor = "255:203:12:255";
    var ptLineColor = "100:150:250:255";
-   var TitleColor = "255:255:255:255";
-   var SubtitleColor = "255:255:255:255";
-   var DescriptionColor = "255:236:139";
+   var titleColor = "255:255:255:255";
+   var subtitleColor = "255:255:255:255";
+   var descriptionColor = "255:236:139";
 
    var symbols = "symbols"
    var backgrounds = "backgrounds.lightblue"
@@ -165,23 +166,23 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
    Defaults font=graphTFT,size=24,color={textColor},bg_color=20:110:220:0;
 
 #ifdef WEATHER
-
-   VariableFile name=p4,file=/tmp/p4.txt,delay=10;
    VariableFile name=w,file=/tmp/weather.txt,delay=10;
 
    Text text=Aussen {w.varTime/%d. %b %H:%M},size=18,color={lightColor},x=1070,y=125,width=260,height=30,delay=10; 
    Text text={w.varTempKombiValue}°C / {w.varHumKombiValue}%,color={lightColor},size=28,x=1070,width=260,height=40,delay=10;
    Text text={w.varWindKombiValue} m/s,color={lightColor},size=28,x=1070,width=140,height=40,delay=10; 
+#endif
+
+#ifdef P4
+   VariableFile name=p4,file=/tmp/p4.txt,delay=10;
 
    Text text=Heizung,color={lightColor},size=18,x=1070,width=110,height=30,delay=10; 
 
    Text text={p4.varPuffertemperaturunten_0x78Value}°C / {p4.varPuffertemperaturoben_0x76Value}°C,color={lightColor},size=28,x=1070,width=285,height=40,delay=10;
    Text text={p4.varStatusText},color={lightColor},size=30,height=45,x=1070,width=285,dots=yes,delay=10;
-
 #endif
 
 #ifdef SYSINFO
-
    VariableFile name=sys,file=/tmp/sysinfo.txt,delay=10;
 
    Text text=Sysinfo {sys.varTime/%d. %b %H:%M},size=18,color={lightColor},x=1070,y=125,width=260,height=30;
@@ -192,7 +193,6 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
    Text text=RAM frei: {sys.varMemFreeKombiValue} MB,color={lightColor},size=18,x=1070,width=260,height=28;
    Text text=Disk frei: {sys.varVideoFreeKombiValue} GB,color={lightColor},size=18,x=1070,width=260,height=28;
    Text text=Kernel: {sys.varKernelKombiValue},color={lightColor},size=18,x=1070,width=260,height=28;
-
 #endif
 
    // Kanalnummer Kanalnamen oben
@@ -214,10 +214,10 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
    Text text={presentStartTime/%H:%M},x=5,y=85,width=165,height=65,size=42,color={lightColor};
    Text text={presentRemaining}',x=175,y=105,width=85,height=45,size=26,delay=60,color={lightColor};
 
-   Text text={presentTitle},id=pTitle,x=260,y=82,width=800,height=295,size=42,color={TitleColor},on_click=Schedule Info;
-   Text text={presentSubtitle},id=pSubTitle,x=260,y=82+{pTitle.height},height=295-{pTitle.height},color={SubtitleColor},width=800,size=32;
+   Text text={presentTitle},id=pTitle,x=260,y=82,width=800,height=295,size=42,color={titleColor},on_click=Schedule Info;
+   Text text={presentSubtitle},id=pSubTitle,x=260,y=82+{pTitle.height},height=295-{pTitle.height},color={subtitleColor},width=800,size=32;
    Text text={presentDescription},id=pDesc,x=260,y=82+{pTitle.height}+{pSubTitle.height},
-         height=295-{pTitle.height}-{pSubTitle.height},color={DescriptionColor},width=800,size=26,dots=yes;
+         height=295-{pTitle.height}-{pSubTitle.height},color={descriptionColor},width=800,size=26,dots=yes;
 
    // EPG Bild 
 
@@ -231,10 +231,10 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
    Text text={followingStartTime/%H:%M},x=5,y=390,width=165,height=65,size=42,color={lightColor};
    Text text={followingDuration}',x=175,y=410,width=85,height=45,size=26,color={lightColor};
 
-   Text text={followingTitle},id=fTitle,x=260,y=385,width=800,height=295,size=42,color={TitleColor},on_click=Schedule Yellow Yellow Info;
-   Text text={followingSubtitle},id=fSubTitle,x=260,y=385+{fTitle.height},height=295-{fTitle.height},width=800,size=32,color={SubtitleColor};
+   Text text={followingTitle},id=fTitle,x=260,y=385,width=800,height=295,size=42,color={titleColor},on_click=Schedule Yellow Yellow Info;
+   Text text={followingSubtitle},id=fSubTitle,x=260,y=385+{fTitle.height},height=295-{fTitle.height},width=800,size=32,color={subtitleColor};
    Text text={followingDescription},id=fDesc,x=260,y=385+{fTitle.height}+{fSubTitle.height},
-         height=295-{fTitle.height}-{fSubTitle.height},color={DescriptionColor},width=800,size=26,dots=yes;
+         height=295-{fTitle.height}-{fSubTitle.height},color={descriptionColor},width=800,size=26,dots=yes;
 
    // EPG Bild   
 

@@ -741,6 +741,53 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
 
    ColumnSelected number=2,x=85,size=32,color={selColor},scroll=ticker,delay=500ms;
    Column         number=2,x=75;
+   
+//***************************************************************************
+// Timers Menu
+//***************************************************************************
+
+[MenuTimers]
+
+   Background path={backgrounds}/bg-menu.png;
+
+   Include=MenuCommon;
+
+   Defaults menu_y=110,menu_height=590,font=graphTFT,size=32,color={unselColor},bg_alpha=0;
+
+   Image x=2,y=1,width=100,height=100,fit=yes,aspect_ratio=yes,path=menulogos/timers.png;
+
+   ColumnSelected number=0,x=5,type=image,width=1350,bar_height=90%,fit=yes,path={menuBackground}/menuSelected.png;
+   Column         number=0,x=5,type=image,width=1350,bar_height=90%,fit=yes,path={menuBackground}/menuUnselected.png;
+
+   // symbol
+
+   ColumnSelected number=1,x=10,size=34,color={selColor},width=40;
+   Column         number=1,x=10,width=40;
+
+   // channel
+
+   ColumnSelected condition={colCount} > 3,number=2,size=34,color={selColor},width=120;
+   Column         condition={colCount} > 3,number=2,width=120;
+
+   // day
+
+   ColumnSelected condition={colCount} > 3,number=3,size=34,color={selColor},width=205;
+   Column         condition={colCount} > 3,number=3,width=205;
+
+   // time start
+
+   ColumnSelected condition={colCount} > 3,number=4size=34,color={selColor},width=160;
+   Column         condition={colCount} > 3,number=4,width=160;
+
+   // time stop
+
+   ColumnSelected condition={colCount} > 3,number=5,size=34,color={selColor},width=160;
+   Column         condition={colCount} > 3,number=5,width=160;
+
+   // name
+
+   ColumnSelected condition={colCount} > 3,number=6,size=34,color={selColor},width=630,dots=yes;
+   Column         condition={colCount} > 3,number=6,width=630,dots=yes;
 
 
 //***************************************************************************

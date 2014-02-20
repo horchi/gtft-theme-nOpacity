@@ -860,7 +860,7 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
 
    // parting line
 
-   PartingLine x=0,align=center,width=423,size=34,color={ptLineColor},path={menuBackground}/menuUnselected_2.png; 
+   PartingLine x=2,width=423,bar_height=95%,fit=yes,size=34,color={ptLineColor},path={menuBackground}/menuUnselected_2.png,align=center;
 
    // Senderlogo Logo oben links
 
@@ -914,7 +914,7 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
 
    // parting line
 
-   PartingLine x=2,width=420,bar_height=95%,fit=yes,size=34,color={ptLineColor},path={menuBackground}/menuUnselected_2.png,align=center;
+   PartingLine x=2,width=423,bar_height=95%,fit=yes,size=34,color={ptLineColor},path={menuBackground}/menuUnselected_2.png,align=center;
 
    // EPG Logo oben links
 
@@ -928,7 +928,7 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
    // Senderlogo
 
    EventColumnSelected type=image,width=85,x=8,fit=yes,bar_height=95%,spacing=10,path={chanLogos}/{rowEventChannelname/lower}.png;
-   EventColumn         type=image,width=85,x=8,fit=yes,bar_height=80%,spacing=10,path={chanLogos}/{rowEventChannelname/lower}.png;
+   EventColumn         type=image,width=85,x=8,fit=yes,bar_height=95%,spacing=10,path={chanLogos}/{rowEventChannelname/lower}.png;
 
    // Starttime - Endtime
 
@@ -969,7 +969,7 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
 
    // parting line
 
-   PartingLine x=2,width=420,bar_height=95%,fit=yes,size=34,color={ptLineColor},path={menuBackground}/menuUnselected_2.png,align=center; 
+   PartingLine x=2,width=423,bar_height=95%,fit=yes,size=34,color={ptLineColor},path={menuBackground}/menuUnselected_2.png,align=center; 
   
    // Image als Menü Hintergrund
 
@@ -979,7 +979,7 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
    // Senderlogo
 
    EventColumnSelected type=image,width=85,x=8,fit=yes,bar_height=95%,spacing=10,path={chanLogos}/{rowEventChannelname/lower}.png;
-   EventColumn         type=image,width=85,x=8, fit=yes,bar_height=80%,spacing=10,path={chanLogos}/{rowEventChannelname/lower}.png;
+   EventColumn         type=image,width=85,x=8,fit=yes,bar_height=95%,spacing=10,path={chanLogos}/{rowEventChannelname/lower}.png;
 
    // Starttime - Endtime
 

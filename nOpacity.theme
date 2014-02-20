@@ -854,9 +854,13 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
 
    Defaults menu_x=0,menu_y=70,menu_height=635,height=87,font=graphTFT,size=19,color={unselColor},bg_alpha=0;
 
+   // Menu Navigation Area
+
+   MenuNavigationArea y=110,x=0,width=425,on_dblclick=Ok;
+
    // parting line
 
-   PartingLine x=0,align=center,width=400,size=34,color={ptLineColor},path={menuBackground}/menuUnselected_2.png; 
+   PartingLine x=0,align=center,width=423,size=34,color={ptLineColor},path={menuBackground}/menuUnselected_2.png; 
 
    // Senderlogo Logo oben links
 
@@ -864,23 +868,23 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
 
    // Image als Menü Hintergrund
 
-   EventColumnSelected type=image,x=2,bar_height=95%,path={menuBackground}/menuSelected_2.png,spacing=5;
-   EventColumn         type=image,x=2,bar_height=95%,path={menuBackground}/menuUnselected_2.png,width=1,spacing=5;
+   EventColumnSelected type=image,x=2,bar_height=95%,width=423,fit=yes,path={menuBackground}/menuSelected_2.png,spacing=5;
+   EventColumn         type=image,x=2,bar_height=95%,width=423,fit=yes,path={menuBackground}/menuUnselected_2.png,width=1,spacing=5;
 
    // Date
 
-   EventColumnSelected text={rowEventStartTime/%H:%M} - {rowEventEndTime/%H:%M},x=8,width=400,lines=1,size=20,spacing=20,color={selColor};
-   EventColumn         text={rowEventStartTime/%H:%M} - {rowEventEndTime/%H:%M},x=8,width=400,lines=1,spacing=20;
+   EventColumnSelected text={rowEventStartTime/%H:%M} - {rowEventEndTime/%H:%M},x=8,width=420,lines=1,size=20,spacing=20,color={selColor};
+   EventColumn         text={rowEventStartTime/%H:%M} - {rowEventEndTime/%H:%M},x=8,width=420,lines=1,spacing=20;
 
    // Title
 
-   EventColumnSelected text={rowEventTitle},menu_y=95,x=4,width=405,size=20,spacing=10,lines=1,color={selColor},dots=yes;
-   EventColumn         text={rowEventTitle},menu_y=95,x=4,spacing=10,width=410,lines=1,dots=yes;
+   EventColumnSelected text={rowEventTitle},menu_y=95,x=4,width=420,size=20,spacing=10,lines=1,color={selColor},dots=yes;
+   EventColumn         text={rowEventTitle},menu_y=95,x=4,spacing=10,width=420,lines=1,dots=yes;
 
    // Subtitle
 
-   EventColumnSelected text={rowEventSubtitle},menu_y=120,x=4,width=405,size=20,spacing=10,lines=1,color={selColor},dots=yes;
-   EventColumn         text={rowEventSubtitle},menu_y=120,x=4,spacing=10,width=410,lines=1,dots=yes; 
+   EventColumnSelected text={rowEventSubtitle},menu_y=120,x=4,width=420,size=20,spacing=10,lines=1,color={selColor},dots=yes;
+   EventColumn         text={rowEventSubtitle},menu_y=120,x=4,width=420,spacing=10,width=410,lines=1,dots=yes; 
 
    Include=MenuEpgsRight;
 
@@ -906,11 +910,11 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
 
    // Menu Navigation Area
 
-   MenuNavigationArea y=110,x=0,width=400,on_dblclick=Ok;
+   MenuNavigationArea y=110,x=0,width=425,on_dblclick=Ok;
 
    // parting line
 
-   PartingLine x=2,align=center,width=304,size=34,color={ptLineColor},path={menuBackground}/menuUnselected_2.png; 
+   PartingLine x=2,width=420,bar_height=95%,fit=yes,size=34,color={ptLineColor},path={menuBackground}/menuUnselected_2.png,align=center;
 
    // EPG Logo oben links
 
@@ -918,13 +922,13 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
    
    // Image als Menü Hintergrund
 
-   EventColumnSelected type=image,x=2,bar_height=95%,path={menuBackground}/menuSelected_2.png,spacing=5;
-   EventColumn         type=image,x=2,bar_height=95%,path={menuBackground}/menuUnselected_2.png,width=1,spacing=5,alpha=255;
-   
+   EventColumnSelected type=image,x=2,width=423,bar_height=95%,fit=yes,color={selColor},path={menuBackground}/menuSelected_2.png;
+   EventColumn         type=image,x=2,width=423,bar_height=95%,fit=yes,path={menuBackground}/menuUnselected_2.png;
+
    // Senderlogo
 
-   EventColumnSelected type=image,width=85,x=8,fit=yes,aspect_ratio=yes,bar_height=95%,spacing=10,path={chanLogos}/{rowEventChannelname/lower}.png;
-   EventColumn         type=image,width=85,x=8,fit=yes,aspect_ratio=yes,bar_height=80%,spacing=10,path={chanLogos}/{rowEventChannelname/lower}.png;
+   EventColumnSelected type=image,width=85,x=8,fit=yes,bar_height=95%,spacing=10,path={chanLogos}/{rowEventChannelname/lower}.png;
+   EventColumn         type=image,width=85,x=8,fit=yes,bar_height=80%,spacing=10,path={chanLogos}/{rowEventChannelname/lower}.png;
 
    // Starttime - Endtime
 
@@ -943,7 +947,7 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
 
    Include=MenuEpgsRight;
 
-//***************************************************************************
+//**************************************************************************
 // EpgSearch - Now
 //***************************************************************************
 
@@ -957,7 +961,7 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
 
    // Menu Navigation Area
 
-   MenuNavigationArea y=110,x=0,width=400,on_dblclick=Ok;
+   MenuNavigationArea y=110,x=0,width=425,on_dblclick=Ok;
 
    // EPG Logo oben links
 
@@ -965,17 +969,17 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
 
    // parting line
 
-   PartingLine x=2,width=425,bar_height=95%,fit=yes,size=34,color={ptLineColor},path={menuBackground}/menuUnselected_2.png,align=center; 
+   PartingLine x=2,width=420,bar_height=95%,fit=yes,size=34,color={ptLineColor},path={menuBackground}/menuUnselected_2.png,align=center; 
   
    // Image als Menü Hintergrund
 
-   EventColumnSelected type=image,x=2,width=425,bar_height=95%,fit=yes,color={selColor},path={menuBackground}/menuSelected_2.png;
-   EventColumn         type=image,x=2,width=425,bar_height=95%,fit=yes,path={menuBackground}/menuUnselected_2.png;
+   EventColumnSelected type=image,x=2,width=423,bar_height=95%,fit=yes,color={selColor},path={menuBackground}/menuSelected_2.png;
+   EventColumn         type=image,x=2,width=423,bar_height=95%,fit=yes,path={menuBackground}/menuUnselected_2.png;
    
    // Senderlogo
 
-   EventColumnSelected type=image,width=85,x=8,fit=yes,aspect_ratio=yes,bar_height=95%,spacing=10,path={chanLogos}/{rowEventChannelname/lower}.png;
-   EventColumn         type=image,width=85,x=8,fit=yes,aspect_ratio=yes,bar_height=80%,spacing=10,path={chanLogos}/{rowEventChannelname/lower}.png;
+   EventColumnSelected type=image,width=85,x=8,fit=yes,bar_height=95%,spacing=10,path={chanLogos}/{rowEventChannelname/lower}.png;
+   EventColumn         type=image,width=85,x=8, fit=yes,bar_height=80%,spacing=10,path={chanLogos}/{rowEventChannelname/lower}.png;
 
    // Starttime - Endtime
 
@@ -985,11 +989,11 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
    // Progressbar Short
   
    EventColumnSelected type=progress,menu_y=95,x=102,width=317,bar_height=15%,path={symbols}/progress_grey.png;
-   EventColumn         type=progress,menu_y=95,x=102,width=320,bar_height=15%,path={symbols}/progress_grey.png;
+   EventColumn         type=progress,menu_y=95,x=102,width=317,bar_height=15%,path={symbols}/progress_grey.png;
     
    EventColumnSelected type=progress,menu_y=95,x=106,width=310,spacing=10,bar_height=10%,bg_x=106,bg_width=310,
       bg_color=105:105:105:255,path={symbols}/progress.png;
-   EventColumn         type=progress,menu_y=95,x=106,width=312,spacing=10,bar_height=10%,bg_x=102,bg_width=320,
+   EventColumn         type=progress,menu_y=95,x=106,width=310,spacing=10,bar_height=10%,bg_x=102,bg_width=310,
       bg_color=105:105:105:255,path={symbols}/progress.png;
   
    // Title

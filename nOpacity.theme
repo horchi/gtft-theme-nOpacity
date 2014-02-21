@@ -156,7 +156,6 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
 
 #ifdef WEATHER
    VariableFile name=w,file=/tmp/weather.txt,delay=10;
-
    Text text=Aussen {w.varTime/%d. %b %H:%M},size=18,color={lightColor},x=1070,y=125,width=260,height=30,delay=10; 
    Text text={w.varTempKombiValue}°C / {w.varHumKombiValue}%,color={lightColor},size=28,x=1070,width=260,height=40,delay=10;
    Text text={w.varWindKombiValue} m/s,color={lightColor},size=28,x=1070,width=140,height=40,delay=10; 
@@ -164,16 +163,13 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
 
 #ifdef P4
    VariableFile name=p4,file=/tmp/p4.txt,delay=10;
-
    Text text=Heizung,color={lightColor},size=18,x=1070,width=110,height=30,delay=10; 
-
    Text text={p4.varPuffertemperaturunten_0x78Value}°C / {p4.varPuffertemperaturoben_0x76Value}°C,color={lightColor},size=28,x=1070,width=285,height=40,delay=10;
    Text text={p4.varStatusText},color={lightColor},size=30,height=45,x=1070,width=285,dots=yes,delay=10;
 #endif
 
 #ifdef SYSINFO
    VariableFile name=sys,file=/tmp/sysinfo.txt,delay=10;
-
    Text text=Sysinfo {sys.varTime/%d. %b %H:%M},size=18,color={lightColor},x=1070,y=125,width=260,height=30;
    Text text=CPU Temp: {sys.varCPUTempKombiValue} °C,color={lightColor},size=18,x=1070,width=260,height=28;
    Text text=GPU Temp: {sys.varGPUTempKombiValue} °C,color={lightColor},size=18,x=1070,width=260,height=28;
@@ -353,59 +349,60 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
    Background path=backgrounds/bg-replay.png;
 
    Defaults font=graphTFT,size=40,color={textColor},bg_red=0,bg_green=0,bg_blue=0,bg_alpha=0;
-
-   Image condition={replayForward} = 1 & {replaySpeed} = -1 & {replayPlay} = 1,x=1090,y=270,path={symbols}/play.png;  // play
-   Image condition={replayForward} = 1 & {replaySpeed} = -1 & {replayPlay} < 1,x=1090,y=270,path={symbols}/pause.png; // pause
-   Image condition={replayForward} = 0 & {replaySpeed} > 0 & {replayPlay} = 1,x=1090,y=270,path={symbols}/frew.png;   // Fast Rewind
-   Image condition={replayForward} = 1 & {replaySpeed} > 0 & {replayPlay} = 1,x=1090,y=270,path={symbols}/ffwd.png;   // Fast Forward
-   Image condition={replayForward} = 0 & {replaySpeed} > 0 & {replayPlay} < 1,x=1090,y=270,path={symbols}/srew.png;   // Slow Rewind
-   Image condition={replayForward} = 1 & {replaySpeed} > 0 & {replayPlay} < 1,x=1090,y=270,path={symbols}/sfwd.png;   // Slow Forward
-
+   
 #ifdef WEATHER
-
    VariableFile name=p4,file=/tmp/p4.txt,delay=10;
-   VariableFile name=w,file=/tmp/weather.txt,delay=10;
-
-   Text text=Aussen {w.varTime/%d. %b %H:%M},color={lightColor},size=18,x=1076,y=405,width=300,height=30;
-   Text text={w.varTempKombiValue}°C / {w.varHumKombiValue}%,color={lightColor},size=28,x=1076,width=280,height=40;
-   Text text={w.varWindKombiValue} m/s,color={lightColor},size=28,x=1076,width=275,height=40;
-
-   Text text=Heizung,size=18,x=1076,color={lightColor},width=120,height=30;
-   Text text={p4.varPuffertemperaturunten_0x78Value}°C / {p4.varPuffertemperaturoben_0x76Value}°C,color={lightColor},size=28,x=1076,width=300,height=40;
-   Text text={p4.varStatusText},color={lightColor},size=28,height=40,x=1076,width=350;
-
+   Text text=Aussen {w.varTime/%d. %b %H:%M},color={lightColor},size=18,x=1076,y=270,width=300,height=30,delay=10;
+   Text text={w.varTempKombiValue}°C / {w.varHumKombiValue}%,color={lightColor},size=28,x=1076,width=280,height=40,delay=10;
+   Text text={w.varWindKombiValue} m/s,color={lightColor},size=28,x=1076,width=275,height=40,delay=10;
 #endif
 
-   // Datum/Uhr oben rechts
+#ifdef P4
+   VariableFile name=w,file=/tmp/weather.txt,delay=10;
+   Text text=Heizung,size=18,x=1076,color={lightColor},width=120,height=30,delay=10;
+   Text text={p4.varPuffertemperaturunten_0x78Value}°C / {p4.varPuffertemperaturoben_0x76Value}°C,color={lightColor},size=28,x=1076,width=300,height=40,delay=10;
+   Text text={p4.varStatusText},color={lightColor},size=28,height=40,x=1076,width=350,delay=10;
+#endif
 
-   Text text={time/%H:%M},x=1179,y=270,size=42,color={tdColor},align=left,width=168,height=55;
-   Text text={time/%a %d.%m},x=1183,size=26,color={tdColor},align=left,width=165,height=35;
+   // Mode symbol 
+
+   Image condition={replayForward} = 1 & {replaySpeed} = -1 & {replayPlay} = 1,x=1220,y=590,width=62,height=62,fit=yes,path={symbols}/play.png;  // play
+   Image condition={replayForward} = 1 & {replaySpeed} = -1 & {replayPlay} < 1,x=1220,y=590,width=62,height=62,fit=yes,path={symbols}/pause.png; // pause
+   Image condition={replayForward} = 0 & {replaySpeed} > 0  & {replayPlay} = 1,x=1220,y=590,width=62,height=62,fit=yes,path={symbols}/frew.png;  // Fast Rewind
+   Image condition={replayForward} = 1 & {replaySpeed} > 0  & {replayPlay} = 1,x=1220,y=590,width=62,height=62,fit=yes,path={symbols}/ffwd.png;  // Fast Forward
+   Image condition={replayForward} = 0 & {replaySpeed} > 0  & {replayPlay} < 1,x=1220,y=590,width=62,height=62,fit=yes,path={symbols}/srew.png;  // Slow Rewind
+   Image condition={replayForward} = 1 & {replaySpeed} > 0  & {replayPlay} < 1,x=1220,y=590,width=62,height=62,fit=yes,path={symbols}/sfwd.png;  // Slow Forward
 
    // Ausgabe recording info
 
-   Text text={replayTitle},x=10,y=10,size=40,width=1000,height=65,lines=1,color={lightColor},scroll=ticker,scroll_count=0,delay=300ms;
-   Text text={replaySubtitle},x=10,y=100,size=30,width=715,height=40;
+   Text text={replayTitle},id=rTitle,x=10,y=5,size=40,width=1000,height=690,color={lightColor};
+   Text text={replaySubtitle},id=rSubTitle,x=10,width=1000,y=5+{rTitle.height},height=690-{rTitle.height},size=30;
 
    var varStartLine = 0;
-   Text text={replayDescription},start_line={varStartLine},whipe_res=20,on_up=varStartLine--,on_down=varStartLine++,
-       x=10,y=190,width=1020,height=445,size=22,dots=1;
- 
+   Text text={replayDescription},start_line={varStartLine},size=22,whipe_res=20,on_up=varStartLine--,on_down=varStartLine++,
+       x=10,width=1020,y=5+{rTitle.height}+{rSubTitle.height},height=690-{rTitle.height}-{rSubTitle.height},color={descriptionColor},dots=yes;
+
    // Event. Bild ausgeben.
 
    Image x=1045,y=10,width=300,height=250,
       path={replayPath}/thumbnail_(0-9).jpg
         :{replayPath}/{replayEventId}_(0-9).jpg,
-     fit=yes,delay=5,aspect_ratio=yes; //EPG Bild     
+      fit=yes,delay=5,aspect_ratio=yes;
+
+   // Datum/Uhr unten rechts
+
+   Text text={time/%H:%M},x=1177,y=661,size=42,color={tdMainColor},align=left,width=165,height=60;
+   Text text={time/%a %d.%m},x=1180,y=724,size=26,color={tdMainColor},align=left,width=165,height=38;
 
    // Laufzeiten links und rechts unten & Vortschrittbalken
 
-   Text text={replayCurrent/%k:%M:%S},x=4,y=683,color={lightColor},width=235,size=42,height=75,align=left,delay=1;
-   Text text={replayTotal/%k:%M:%S},x=1105,y=683,color={lightColor},width=237,size=42,height=75,align=right;
+   Text text={replayCurrent/%k:%M:%S},x=5,y=710,color={lightColor},width=190,size=32,height=55,align=left,delay=1;
+   Text text={replayTotal/%k:%M:%S},x=805,y=710,color={lightColor},width=190,size=32,height=55,align=right;
 
    // Progressbar
 
-   Progressbar total={replayTotal/%s},value={replayCurrent/%s},x=266,y=707,width=818,height=22,
-      path={symbols}/progress.png,bg_x=262,bg_y=703,bg_height=30,bg_width=834,
+   Progressbar total={replayTotal/%s},value={replayCurrent/%s},x=200,y=725,width=600,height=22,
+      path={symbols}/progress.png,bg_x=198,bg_y=721,bg_height=26,bg_width=602,
       bg_color=105:105:105:255;
 
    Include=Volume;

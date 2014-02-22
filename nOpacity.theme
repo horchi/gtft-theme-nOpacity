@@ -192,7 +192,8 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
 
    // Senderlogo Logo oben rechts
 
-   Image x=1155,y=0,width=200,height=110,bg_width=200,fit=yes,aspect_ratio=yes,path={chanLogos}/{presentChannelName/lower}.png,on_click=Schedule;
+   Image x=1150,y=7,width=200,height=110,bg_x=1145,bg_y=2,bg_height=120,fit=yes,aspect_ratio=yes,
+       path={chanLogos}/{presentChannelName/lower}.png,path2=symbols/channellogoback.png,on_click=Schedule;
    
    // Aktuelle Sendung
 

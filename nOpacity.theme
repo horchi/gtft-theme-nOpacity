@@ -54,7 +54,7 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
    var ptLineColor = "100:150:250:255";
    var titleColor = "255:255:255:255";
    var subtitleColor = "255:255:255:255";
-   var descriptionColor = "255:236:139";
+   var descriptionColor = "238:232:170";
 
    var symbols = "symbols";
    var menuBackground = "menu.darkblue";

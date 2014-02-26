@@ -192,7 +192,7 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
 
    // Senderlogo Logo oben rechts
 
-   Image x=1145,y=0,width=200,height=120,bg_x=1145,bg_y=2,bg_width=200,bg_height=120,fit=yes,aspect_ratio=no,
+   Image x=1150,y=0,width=190,height=120,bg_x=1145,bg_y=2,bg_width=200,bg_height=120,fit=yes,aspect_ratio=no,
        path={chanLogos}/{presentChannelName/lower}.png,path2=symbols/channellogoback.png,on_click=Schedule;
    
    // Aktuelle Sendung
@@ -795,26 +795,34 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
 
    // Start und Endezeit des gewaehlten Titels oben links
 
-   text text={EventTitle},id=eTitle,x=10,y=62,size=40,width=1090,height=210,color={lightColor};
-   text text={EventSubtitle},id=eSubTitle,x=10,y=62+{eTitle.height},width=1090,size=30,height=210-{eTitle.height},dots=yes;
+   text text={EventTitle},id=eTitle,x=10,y=62,size=40,width=1120,height=210,color={lightColor};
+   text text={EventSubtitle},id=eSubTitle,x=10,y={eTitle.y}+{eTitle.height},width=1120,size=30,height=210-{eTitle.height},dots=yes;
 
-   text text={EventStartTime/%a %d.%m}   {EventStartTime/%H:%M} - {EventEndTime/%H:%M},id=eTime,x=10,
-      y=62+5+{eTitle.height}+{eSubTitle.height},size=28,width=600,height=210-{eTitle.height}-{eSubTitle.height};
+   text text={EventStartTime/%a %d.%m.%Y}   {EventStartTime/%H:%M} - {EventEndTime/%H:%M},id=eTime,x=10,
+      y={eSubTitle.y}+{eSubTitle.height},size=28,width=600,height=210-{eTitle.height}-{eSubTitle.height};
+
+   Text text=Progress: {eventElapsed}' / {eventDuration}',id=ePro,x=10,y={eTime.y}+{eTime.height},width=1120,
+         height=65,size=26;
+
+   Rectangle x=10,y={ePro.y}+{ePro.height},
+             width=1340,height=4,color={boxColor};
 
    // EPG Bild
 
    Image x=1130,y=62,width=210,height=210,
      path={varEPGimagesPath_1}{eventID}_(0-9).jpg:
-       {varEPGimagesPath_2}{eventID}.png,
+          {varEPGimagesPath_2}{eventID}.png,
      fit=yes,delay=5,aspect_ratio=yes;
 
    // EPG Detailinformationen
 
    var varStartLine = 0;
-   text text={EventDescription},start_line={varStartLine},whipe_res=20,on_up=varStartLine--,on_down=varStartLine++,
-      x=10,y=62+210,size=24,width=1340,height=420,dots=1;
-   
-   Text text={eventElapsed}' / {eventDuration}',x=1130,y=255,width=210,align=center,height=65,size=26,color={textColor};
+
+   text text={EventDescription},color={descriptionColor},x=10,
+      y=62+5+{eTitle.height}+{eSubTitle.height}+{eTime.height}+{ePro.height}+10,
+      size=24,width=1340,height=420,
+      start_line={varStartLine},whipe_res=20,on_up=varStartLine--,on_down=varStartLine++,
+      dots=1;
 
 //***************************************************************************
 // Right Area of EPG Menu

@@ -7,6 +7,9 @@ Für graphTFTng ab Version 1.4.7
 
 Theme Auflösung 1360x768 
 
+Hier gibt es passende Sender-Logos von 3PO:
+git clone https://github.com/3PO/Senderlogos
+
 Hinweise:
 ---------
 

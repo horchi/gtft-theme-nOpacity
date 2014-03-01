@@ -446,6 +446,8 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
    MenuImageMap file=menulogos/timers.png,name=Timer;
    MenuImageMap file=menulogos/extrecmenu.png,name=Video;
    MenuImageMap file=menulogos/cdplayer.png,name=Audio;
+   MenuImageMap file=menulogos/audio.png,name=Squeezebox;
+   MenuImageMap file=menulogos/screenshot.png,name=Bildschirmfoto;
    MenuImageMap file=menulogos/lcdproc.png,name=Applikationen;
    MenuImageMap file=menulogos/systeminfo.png,name=System;
    MenuImageMap file=menulogos/tvm2vdr.png,name=epg handler;
@@ -646,16 +648,19 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
 
    Image x=2,y=1,width=100,height=100,fit=yes,aspect_ratio=yes,path=menulogos/recordings.png;
 
-   Text text={recordingTitle},x=10,y=100,size=36,width=1340,height=60,lines=1,scroll=ticker,delay=500ms;
-   Text text={recordingSubtitle},x=10,y=160,size=30,width=525,height=40;
+   Text text={recordingTime/%a  %d. %b %Y  %H:%M},id=rTime,x=10,y=105,size=22,width=1110,height=45;
+   Text text={recordingTitle},id=rTitle,x=10,y={rTime.y}+{rTime.height},size=36,width=1110,height=545;
+   Text text={recordingSubtitle},id=rSubtitle,x=10,y={rTitle.y}+{rTitle.height},size=30,width=1110,height=545-{rTitle.height};
    
    var varStartLine = 0;
-   Text text={recordingDescription},start_line={varStartLine},whipe_res=20,on_up=varStartLine--,on_down=varStartLine++,
-   x=10,y=210,width=980,height=485,size=20,dots=1;
+   Text text={recordingDescription},start_line={varStartLine},
+     whipe_res=20,on_up=varStartLine--,on_down=varStartLine++,color={descriptionColor},
+     x=10,y={rSubtitle.y}+{rSubtitle.height}+5,width=1340,
+     height=545-{rTitle.height}-{rSubtitle.height},size=20,dots=1;
   
    // EPG. Bild ausgeben.
 
-   Image x=1000,y=71,width=350,height=350,
+   Image x=1130,y=100,width=220,height=200,
      path={recordingPath}/thumbnail_(0-9).jpg
       :{recordingPath}/{replayEventId}_(0-9).jpg
       :{symbols}/video.png,fit=yes,aspect_ratio=yes,delay=5;

@@ -29,8 +29,8 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
 // activate if you have the Hardware
 // -------------------------------------
 
-// #define WEATHER
-// #define P4
+//#define WEATHER
+//#define P4
 // #define SYSINFO
 
 //***************************************************************************
@@ -54,7 +54,7 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
    var ptLineColor = "100:150:250:255";
    var titleColor = "255:255:255:255";
    var subtitleColor = "255:255:255:255";
-   var descriptionColor = "238:232:170";
+   var descriptionColor = "238:232:180";
 
    var symbols = "symbols";
    var menuBackground = "menu.darkblue";
@@ -838,12 +838,12 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
 
    // Titel / Subtitel und EPG Text des 'selected' rechts ausgeben
 
-   Text text={selectedRowEventTitle},x=437,y=60,width=690,height=55,size=35,color={lightColor},on_click=Ok,dots=yes;
-   Text text={selectedRowEventSubtitle},x=437,y=115,width=690,height=45,size=28,color={lightColor};
+   Text text={selectedRowEventTitle},id=eiTitle,x=437,y=60,width=690,height=635,size=35,color={lightColor},on_click=Ok;
+   Text text={selectedRowEventSubtitle},id=eiSubtitle,x=437,y=60+{eiTitle.height},width=690,height=635-{eiTitle.height},size=28,color={lightColor};
 
    var varStartLine = 0;
    Text text={selectedRowEventDescription},start_line={varStartLine},color={descriptionColor},whipe_res=20,on_up=varStartLine--,on_down=varStartLine++,
-      x=437,y=175,width=910,height=512,size=24,align=left;
+      x=437,y=60+5+{eiTitle.height}+{eiSubtitle.height},width=910,height=635-{eiTitle.height}-{eiSubtitle.height}-5,size=24,align=left;
    
    // EPG Bild
 

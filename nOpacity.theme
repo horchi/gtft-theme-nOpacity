@@ -29,8 +29,8 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
 // activate if you have the Hardware
 // -------------------------------------
 
-//#define WEATHER
-//#define P4
+// #define WEATHER
+// #define P4
 // #define SYSINFO
 
 //***************************************************************************
@@ -182,7 +182,7 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
 
    // Kanalnummer Kanalnamen oben
 
-   Text x=5,y=0,text={presentChannelNumber} - {presentChannelName},size=40,align=left,width=1050,
+   Text debug=channelname_number,x=5,y=0,text={presentChannelNumber} - {presentChannelName},size=40,align=left,width=1050,
       height=60,color={menuTitleColor},blue=12,on_click=Schedule Yellow;
 
    // Timebar oben
@@ -192,93 +192,93 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
 
    // Senderlogo Logo oben rechts
 
-   Image x=1152,y=0,width=190,height=115,bg_x=1140,bg_y=2,bg_width=205,bg_height=120,fit=yes,aspect_ratio=no,
+   Image debug=channellogo,x=1152,y=0,width=190,height=115,bg_x=1140,bg_y=2,bg_width=205,bg_height=120,fit=yes,aspect_ratio=no,
        path={chanLogos}/{presentChannelName/lower}.png,path2=symbols/channellogoback.png,on_click=Schedule;
    
    // Aktuelle Sendung
 
-   Text text={presentStartTime/%H:%M},x=5,y=85,width=165,height=65,size=42,color={lightColor};
-   Text text={presentRemaining}',x=175,y=105,width=85,height=45,size=26,delay=60,color={lightColor};
+   Text debug=pstarttime,text={presentStartTime/%H:%M},x=5,y=85,width=165,height=65,size=42,color={lightColor};
+   Text debug=premaining,text={presentRemaining}',x=175,y=105,width=85,height=45,size=26,delay=60,color={lightColor};
 
-   Text text={presentTitle},id=pTitle,x=260,y=82,width=800,height=295,size=42,color={titleColor},on_click=Schedule Info;
-   Text text={presentSubtitle},id=pSubTitle,x=260,y=82+{pTitle.height},height=295-{pTitle.height},color={subtitleColor},width=800,size=32;
-   Text text={presentDescription},id=pDesc,x=260,y=82+{pTitle.height}+{pSubTitle.height},
+   Text debug=ptitle,text={presentTitle},id=pTitle,x=260,y=82,width=800,height=295,size=42,color={titleColor},on_click=Schedule Info;
+   Text debug=psubtitel,text={presentSubtitle},id=pSubTitle,x=260,y=82+{pTitle.height},height=295-{pTitle.height},color={subtitleColor},width=800,size=32;
+   Text debug=pdescription,text={presentDescription},id=pDesc,x=260,y=82+{pTitle.height}+{pSubTitle.height},
          height=295-{pTitle.height}-{pSubTitle.height},color={descriptionColor},width=800,size=26,dots=yes;
 
    // EPG Bild 
 
-   Image x=15,y=155,width=230,height=200,
+   Image debug=pepgimage,x=15,y=155,width=230,height=200,
      path={varEPGimagesPath_1}{presentID}_(0-9).jpg:
        {varEPGimagesPath_2}{presentID}.png,
        fit=yes,aspect_ratio=yes,delay=5; 
 
    // Kommende Sendung
 
-   Text text={followingStartTime/%H:%M},x=5,y=390,width=165,height=65,size=42,color={lightColor};
-   Text text={followingDuration}',x=175,y=410,width=85,height=45,size=26,color={lightColor};
+   Text debug=fstarttime,text={followingStartTime/%H:%M},x=5,y=390,width=165,height=65,size=42,color={lightColor};
+   Text debug=fduration,text={followingDuration}',x=175,y=410,width=85,height=45,size=26,color={lightColor};
 
-   Text text={followingTitle},id=fTitle,x=260,y=385,width=800,height=295,size=42,color={titleColor},on_click=Schedule Yellow Yellow Info;
-   Text text={followingSubtitle},id=fSubTitle,x=260,y=385+{fTitle.height},height=295-{fTitle.height},width=800,size=32,color={subtitleColor};
-   Text text={followingDescription},id=fDesc,x=260,y=385+{fTitle.height}+{fSubTitle.height},
+   Text debug=ftitle,text={followingTitle},id=fTitle,x=260,y=385,width=800,height=295,size=42,color={titleColor},on_click=Schedule Yellow Yellow Info;
+   Text debug=sdubtitle,text={followingSubtitle},id=fSubTitle,x=260,y=385+{fTitle.height},height=295-{fTitle.height},width=800,size=32,color={subtitleColor};
+   Text debug=fdescription,text={followingDescription},id=fDesc,x=260,y=385+{fTitle.height}+{fSubTitle.height},
          height=295-{fTitle.height}-{fSubTitle.height},color={descriptionColor},width=800,size=26,dots=yes;
 
    // EPG Bild   
 
-   Image x=15,y=460,width=230,height=200,
+   Image debug=fepgimage,x=15,y=460,width=230,height=200,
      path={varEPGimagesPath_1}{followingID}_(0-9).jpg:
      {varEPGimagesPath_2}{followingID}.png,
      fit=yes,aspect_ratio=yes,delay=5; 
 
    // Iconleiste
 
-   Image x=5,y=678,width=1060,height=90,fit=yes,aspect_ratio=no,path={backgrounds}/channelsymbols.png; 
+   Image debug=iconbar,x=5,y=678,width=1060,height=90,fit=yes,aspect_ratio=no,path={backgrounds}/channelsymbols.png; 
 
    // Signal Quality
 
-   Text text=STR,x=18,y=700,width=40,height=22,size=14,color={lightColor},overlay=yes; 
-   Progressbar total=100,value={STR/%},x=73,y=705,path={symbols}/progress.png,width=290,height=12,bg_x=68,bg_y=702,
+   Text debug=strtext,text=STR,x=18,y=700,width=40,height=22,size=14,color={lightColor},overlay=yes; 
+   Progressbar debug=strbar,total=100,value={STR/%},x=73,y=705,path={symbols}/progress.png,width=290,height=12,bg_x=68,bg_y=702,
       bg_height=18,bg_width=298,bg_color=0:0:0:255;
  
-   Text text=SNR,x=18,y=727,width=40,height=22,size=14,color={lightColor},overlay=yes;
-   Progressbar total=100,value={SNR/%},x=73,y=733,path={symbols}/progress.png,width=290,height=12,bg_x=68,bg_y=730,
+   Text debug=snrtext,text=SNR,x=18,y=727,width=40,height=22,size=14,color={lightColor},overlay=yes;
+   Progressbar debug=snrbar,total=100,value={SNR/%},x=73,y=733,path={symbols}/progress.png,width=290,height=12,bg_x=68,bg_y=730,
       bg_height=18,bg_width=298,bg_color=0:0:0:255;
 
    // Status Icons  
 
-   Image condition={channelHasVtx} = 0,x=391,y=688,width=75,height=70,path={symbols}/vtxOff.png,fit=yes,overlay=yes;
-   Image condition={channelHasVtx},x=391,y=688,width=75,height=70,path={symbols}/vtxOn.png,fit=yes,overlay=yes;
-   Image condition={channelHasDD} = 0, x=487,y=688,width=75,height=70,path={symbols}/ddOff.png,on_click=Audio,fit=yes,overlay=yes;
-   Image condition={channelHasDD},x=487,y=688,width=75,height=70,path={symbols}/ddOn.png,on_click=Audio,fit=yes,overlay=yes;
-   Image condition={channelHasDD} = 0, x=583,y=688,width=75,height=70,path={symbols}/ch2On.png,on_click=Audio,fit=yes,overlay=yes;
-   Image condition={channelHasDD},x=583,y=688,width=75,height=70,path={symbols}/ch2Off.png,on_click=Audio,fit=yes,overlay=yes;
-   Image condition={channelHasMultilang} = 0, x=679,y=688,width=75,height=70,path={symbols}/multilangOff.png,on_click=Audio,fit=yes,overlay=yes;
-   Image condition={channelHasMultilang},x=679,y=688,width=75,height=70,path={symbols}/multilangOn.png,on_click=Audio,fit=yes,overlay=yes;
-   Image condition={channelIsEncrypted} = 0,x=775,y=688,width=75,height=70,path={symbols}/cryptOff.png,fit=yes,overlay=yes;
-   Image condition={channelIsEncrypted} = 1,x=775,y=688,width=75,height=70,path={symbols}/cryptOn.png,fit=yes,overlay=yes;
-   Image condition={actRecordingCount} = 0, x=871,y=688,width=75,height=70,path={symbols}/recOff.png,fit=yes,overlay=yes;
-   Image condition={actRecordingCount} > 0,x=871,y=688,width=75,height=70,path={symbols}/rec_On.png,fit=yes,overlay=yes;
-   Image condition={videoSizeHeight} < 719,x=967,y=688,width=75,height=70,path={symbols}/sd576i.png,fit=yes,overlay=yes;
-   Image condition={videoSizeHeight} >= 719 & {videoSizeHeight} < 1080,x=967,y=688,width=75,height=70,path={symbols}/hd720p.png,fit=yes,overlay=yes;
-   Image condition={videoSizeHeight} >= 1080,x=967,y=688,width=75,height=70,path={symbols}/hd1080i.png,fit=yes,overlay=yes;
+   Image debug=HasVtx,condition={channelHasVtx} = 0,x=391,y=688,width=75,height=70,path={symbols}/vtxOff.png,fit=yes,overlay=yes;
+   Image debug=HasVtx,condition={channelHasVtx},x=391,y=688,width=75,height=70,path={symbols}/vtxOn.png,fit=yes,overlay=yes;
+   Image debug=HasDD,condition={channelHasDD} = 0, x=487,y=688,width=75,height=70,path={symbols}/ddOff.png,on_click=Audio,fit=yes,overlay=yes;
+   Image debug=HasDD,condition={channelHasDD},x=487,y=688,width=75,height=70,path={symbols}/ddOn.png,on_click=Audio,fit=yes,overlay=yes;
+   Image debug=HasDD,condition={channelHasDD} = 0, x=583,y=688,width=75,height=70,path={symbols}/ch2On.png,on_click=Audio,fit=yes,overlay=yes;
+   Image debug=HasDD,condition={channelHasDD},x=583,y=688,width=75,height=70,path={symbols}/ch2Off.png,on_click=Audio,fit=yes,overlay=yes;
+   Image debug=HasMultilang,condition={channelHasMultilang} = 0, x=679,y=688,width=75,height=70,path={symbols}/multilangOff.png,on_click=Audio,fit=yes,overlay=yes;
+   Image debug=HasMultilang,condition={channelHasMultilang},x=679,y=688,width=75,height=70,path={symbols}/multilangOn.png,on_click=Audio,fit=yes,overlay=yes;
+   Image debug=IsEncrypted,condition={channelIsEncrypted} = 0,x=775,y=688,width=75,height=70,path={symbols}/cryptOff.png,fit=yes,overlay=yes;
+   Image debug=IsEncrypted,condition={channelIsEncrypted} = 1,x=775,y=688,width=75,height=70,path={symbols}/cryptOn.png,fit=yes,overlay=yes;
+   Image debug=actRecordingCount,condition={actRecordingCount} = 0, x=871,y=688,width=75,height=70,path={symbols}/recOff.png,fit=yes,overlay=yes;
+   Image debug=actRecordingCount,condition={actRecordingCount} > 0,x=871,y=688,width=75,height=70,path={symbols}/rec_On.png,fit=yes,overlay=yes;
+   Image debug=videoSizeHeight,condition={videoSizeHeight} < 719,x=967,y=688,width=75,height=70,path={symbols}/sd576i.png,fit=yes,overlay=yes;
+   Image debug=videoSizeHeight,condition={videoSizeHeight} >= 719 & {videoSizeHeight} < 1080,x=967,y=688,width=75,height=70,path={symbols}/hd720p.png,fit=yes,overlay=yes;
+   Image debug=videoSizeHeight,condition={videoSizeHeight} >= 1080,x=967,y=688,width=75,height=70,path={symbols}/hd1080i.png,fit=yes,overlay=yes;
 
    // running timer
 
-   TextList condition={actTimersRunning} = 1,id=rList,text={actTimersStart/%a %H:%M}  -  {actTimersStop/ %H:%M}@{actTimersTitle},lines=2,
+   TextList debug=runningTimer1,condition={actTimersRunning} = 1,id=rList,text={actTimersStart/%a %H:%M}  -  {actTimersStop/ %H:%M}@{actTimersTitle},lines=2,
        x=1076,y=397,height=264,width=275, size=20,color={signalColor},path=backgrounds/listbg.png;
 
    // pending timer
 
-   TextList condition={actTimersRunning} = 0,id=pList,text={actTimersStart/%a %H:%M}  -  {actTimersStop/ %H:%M}@{actTimersTitle},lines=2,
+   TextList debug=runningTimer2,condition={actTimersRunning} = 0,id=pList,text={actTimersStart/%a %H:%M}  -  {actTimersStop/ %H:%M}@{actTimersTitle},lines=2,
        x=1076,y={rList.Height}+397,height=264-{rList.Height},width=275,size=20,overlay=yes;
 
    // Datum/Uhr unten rechts
 
-   Text text={time/%H:%M},x=1177,y=661,size=42,color={tdMainColor},align=left,width=165,height=60;
-   Text text={time/%a %d.%m},x=1180,y=724,size=26,color={tdMainColor},align=left,width=165,height=38;
+   Text debug=date,text={time/%H:%M},x=1177,y=661,size=42,color={tdMainColor},align=left,width=165,height=60;
+   Text debug=timer,text={time/%a %d.%m},x=1180,y=724,size=26,color={tdMainColor},align=left,width=165,height=38;
 
    // Separator
 
-   Rectangle x=0,y=377,width=1060,height=4,color={boxColor};
+   Rectangle debug=seperator,x=0,y=377,width=1060,height=4,color={boxColor};
    
    Include=Volume;
    Include=OSDMessage;
@@ -839,18 +839,19 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
    // Titel / Subtitel und EPG Text des 'selected' rechts ausgeben
 
    Text text={selectedRowEventTitle},id=eiTitle,x=437,y=60,width=690,height=635,size=35,color={lightColor},on_click=Ok;
-   Text text={selectedRowEventSubtitle},id=eiSubtitle,x=437,y=60+{eiTitle.height},width=690,height=635-{eiTitle.height},size=28,color={lightColor};
+   Text text={selectedRowEventSubtitle},id=eiSubtitle,x=437,y={eiTitle.y}+{eiTitle.height},width=690,height=635-{eiTitle.height},
+         size=28,color={lightColor};
 
    var varStartLine = 0;
    Text text={selectedRowEventDescription},start_line={varStartLine},color={descriptionColor},whipe_res=20,on_up=varStartLine--,on_down=varStartLine++,
-      x=437,y=60+5+{eiTitle.height}+{eiSubtitle.height},width=910,height=635-{eiTitle.height}-{eiSubtitle.height}-5,size=24,align=left;
+         x=437,y=256/{eiSubtitle.y}+{eiSubtitle.height},width=910,height=635-{eiTitle.height}-{eiSubtitle.height}-5,size=24,align=left;
    
    // EPG Bild
 
    Image x=1130,y=65,width=210,height=200,
-      path={varEPGimagesPath_1}{selectedRowEventID}_(0-9).jpg:
-           {varEPGimagesPath_2}{selectedRowEventID}.png,
-      fit=yes,aspect_ratio=yes;
+          path={varEPGimagesPath_1}{selectedRowEventID}_(0-9).jpg:
+               {varEPGimagesPath_2}{selectedRowEventID}.png,
+          fit=yes,aspect_ratio=yes;
 
 //***************************************************************************
 // Epgsearch - Laufendes Programm

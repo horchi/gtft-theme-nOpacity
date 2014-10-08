@@ -3,7 +3,7 @@ gtft-theme-nOpacity
 
 Theme for the graphTTFTng VDR Plugin
 
-Für graphTFTng ab Version 1.4.7
+Für graphTFTng ab Version 1.4.11
 
 Theme Auflösung 1360x768 
 

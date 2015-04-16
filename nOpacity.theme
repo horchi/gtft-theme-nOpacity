@@ -834,17 +834,20 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
 
 [MenuEpgsRight]
 
-   Defaults menu_x=0,menu_y=70,menu_height=635,height=87,font=graphTFT,size=19,color={unselColor},bg_alpha=0;
+   Defaults menu_x=0,menu_y=70,menu_height=635,height=87,font=graphTFT,size=19,color={unselColor},bg_alpha=150;
 
-   // Titel / Subtitel und EPG Text des 'selected' rechts ausgeben
+   // Titel / Subtitel des 'selected' rechts ausgeben
 
    Text text={selectedRowEventTitle},id=eiTitle,x=437,y=60,width=690,height=635,size=35,color={lightColor},on_click=Ok;
    Text text={selectedRowEventSubtitle},id=eiSubtitle,x=437,y={eiTitle.y}+{eiTitle.height},width=690,height=635-{eiTitle.height},
          size=28,color={lightColor};
 
+   // description
+
    var varStartLine = 0;
-   Text text={selectedRowEventDescription},start_line={varStartLine},color={descriptionColor},whipe_res=20,on_up=varStartLine--,on_down=varStartLine++,
-         x=437,y=256/{eiSubtitle.y}+{eiSubtitle.height},width=910,height=635-{eiTitle.height}-{eiSubtitle.height}-5,size=24,align=left;
+
+   Text text={selectedRowEventDescription},id=eiDesc,start_line={varStartLine},color={descriptionColor},whipe_res=20,on_up=varStartLine--,on_down=varStartLine++,
+         x=437,y={eiSubtitle.y}+{eiSubtitle.height},width=910,height=635-{eiTitle.height}-{eiSubtitle.height}-5,size=24,align=left;
    
    // EPG Bild
 
@@ -1043,7 +1046,7 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
   // Ausgabe eines Bildes oder, mittels Script, einer Bilderserie auf dem Display
   // Diese Funktion wird über das graphTFT OSD-Menu oder "svdrpsend.pl plug graphtft VIEW Dia" aufgerufen
 
-   ImageFile x=0,y=0,width=1360,height=768,path=/tmp/dia.file,path2={symbols}/nocover.png,fit=yes,aspect_ratio=yes;
+   ImageFile x=0,y=0,width=1360,height=768,path=/tmp/dia.file,path2={symbols}/nocover.png,fit=yes,aspect_ratio=yesi,delay=3;
    Include=OSDMessage;
 
 #ifdef WEATHER
@@ -1102,60 +1105,59 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
 
    // Kessel
 
-   Text text={p4.varAbgastempValue} °C,x=20,y=240,width=120,on_click=varAbgasTemp:1:0;
+   Text text={p4.varAbgastemperatur_0x1Value} °C,x=20,y=240,width=120,on_click=varAbgasTemp:1:0;
 
    Image x=146,y=335,width=20,height=20,path=p4/ID_10-on.gif;
-   Text text={p4.varSaugzugIstValue},x=20,y=325,width=120;
+   Text text={p4.varSaugzugdrehzahl_0x7Value},x=20,y=325,width=120;
    Text text=U/min,x=20,y=355,width=120,size=16;
 
    Text text={p4.varStatusText},size=30,height=40,x=62,y=60,width=350;
    Text condition={p4.varFehlerText} != "Kein Fehler",text={p4.varFehlerText} h,
            size=30,height=40,color={signalColor},x=62,y=120,size=24,height=35,width=250;
 
-   Text text={p4.varKesselstrgValue}%,x=120,y=440,width=120;
-   Text text={p4.varKesseltempValue} °C,x=75,y=590,width=120,on_click=varKesselTemp:1:0;
+   Text text={p4.varKesselstellgre_0x12Value}%,x=120,y=440,width=120;
+   Text text={p4.varKesseltemperatur_0x0Value} °C,x=75,y=590,width=120,on_click=varKesselTemp:1:0;
 
-   Text text={p4.varBetriebsstundenValue} h,x=75,y=630,width=125;
+   Text text={p4.varBetriebsstunden_0x62Value} h,x=75,y=630,width=125;
 
    // Pellet
 
-   Text text={p4.varFüllstandValue}%,x=240,y=360,width=130;
-   Progressbar total=100,value={p4.varFüllstandValue/%s},text=percent,x=220,y=350,
+   Text text={p4.varFllstandimPelletsbehlter_0x71Value}%,x=240,y=360,width=130;
+   Progressbar total=100,value={p4.varFllstandimPelletsbehlter_0x71Value/%s},text=percent,x=220,y=350,
                   red=255,green=255,blue=255,
                   width=120,height=80,path=p4/p4-pellets.jpg,on_click=varPellets:1:0;
 
    // Heizkreise
 
-   Image condition={p4.varHKPumpe1Value} = 1,x=675,y=241,width=20,height=20,path=p4/p4-pump-on.png;
-   Image condition={p4.varHKPumpe1Value} = 0,x=675,y=241,width=20,height=20,path=p4/p4-pump-off.png;
-   Text text={p4.varVorlauf1Value} °C,x=590,y=20,width=120;
+   Image condition={p4.varHeizkreispumpe_0x0Value} = 1,x=675,y=241,width=20,height=20,path=p4/p4-pump-on.png;
+   Image condition={p4.varHeizkreispumpe_0x0Value} = 0,x=675,y=241,width=20,height=20,path=p4/p4-pump-off.png;
+   Text text={p4.varVorlaufIsttemperatur_0x15Value} °C,x=590,y=20,width=120;
 
-   Image condition={p4.varHKPumpe2Value} = 1,x=780,y=241,width=20,height=20,path=p4/p4-pump-on.png;
-   Image condition={p4.varHKPumpe2Value} = 0,x=780,y=241,width=20,height=20,path=p4/p4-pump-off.png;
-   Text text={p4.varVorlauf2Value} °C,x=910,y=20,width=120;
+   Image condition={p4.varHeizkreispumpe_0x1Value} = 1,x=780,y=241,width=20,height=20,path=p4/p4-pump-on.png;
+   Image condition={p4.varHeizkreispumpe_0x1Value} = 0,x=780,y=241,width=20,height=20,path=p4/p4-pump-off.png;
+   Text text={p4.varVorlaufIsttemperatur_0x19Value} °C,x=910,y=20,width=120;
 
    // Puffer
 
-   Text text={p4.varPufferobenValue} °C,x=1125,y=230,width=120,on_click=varPufferOben:1:0;
-   Text text={p4.varPufferuntenValue} °C,x=1125,y=610,width=120,on_click=varPufferUnten:1:0;
-   Text text={p4.varPufferpumpeValue}%,x=620,y=590,width=110;
-   Image condition={p4.varPufferpumpeValue} > 0,x=625,y=620,width=20,height=20,path=p4/p4-pump-on.png;
-   Image condition={p4.varPufferpumpeValue} = 0,x=625,y=620,width=20,height=20,path=p4/p4-pump-off.png; 
+   Text text={p4.varPuffertemperaturoben_0x76Value} °C,x=1125,y=230,width=120,on_click=varPufferOben:1:0;
+   Text text={p4.varPuffertemperaturunten_0x78Value} °C,x=1125,y=610,width=120,on_click=varPufferUnten:1:0;
+   Text text={p4.varPufferpumpenAnsteuerung_0x8cValue}%,x=620,y=590,width=110;
+   Image condition={p4.varPufferpumpenAnsteuerung_0x8cValue} > 0,x=625,y=620,width=20,height=20,path=p4/p4-pump-on.png;
+   Image condition={p4.varPufferpumpenAnsteuerung_0x8cValue} = 0,x=625,y=620,width=20,height=20,path=p4/p4-pump-off.png; 
 
    // Aussen
 
    Text text=Außen,x=1225,y=15,width=110,size=16;
-   Text text={p4.varAussentempValue} °C,x=1225,y=40,width=110,on_click=varAussenTemp:1:0;
+   Text text={p4.varAuentemperatur_0x4Value} °C,x=1225,y=40,width=110,on_click=varAussenTemp:1:0;
 
    // Detail Charts
+
    Image condition={varPufferOben},x=900,y=200,fit=yes,width=400,height=250,path=/tmp/chg_p4-pufferoben.jpg,on_click=varPufferOben:1:0;
    Image condition={varKesselTemp},x=60,y=480,fit=yes,width=400,height=250,path=/tmp/chg_p4-abgastemp.jpg,on_click=varKesselTemp:1:0;
    Image condition={varAbgasTemp},x=10,y=200,fit=yes,width=400,height=250,path=/tmp/chg_p4-abgastemp.jpg,on_click=varAbgasTemp:1:0;
    Image condition={varPufferUnten},x=900,y=500,fit=yes,width=400,height=250,path=/tmp/chg_p4-pufferunten.jpg,on_click=varPufferUnten:1:0;
    Image condition={varAussenTemp},x=800,y=15,fit=yes,width=400,height=250,path=/tmp/chg_p4-aussentemp.jpg,on_click=varAussenTemp:1:0;
    Image condition={varPellets},x=200,y=300,fit=yes,width=400,height=250,path=/tmp/chg_p4-pellets.jpg,on_click=varPellets:1:0;
-
-   // varFühler1Value -> STB
 
    Text text=Akualisiert: {p4.varTime/%d.%m %H:%M},size=16,x=10,y=743,width=275,height=25;
 

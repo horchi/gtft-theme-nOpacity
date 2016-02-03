@@ -29,9 +29,9 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
 // activate if you have the Hardware
 // -------------------------------------
 
-// #define WEATHER
-// #define P4
-// #define SYSINFO
+//#define WEATHER
+//#define P4
+//#define SYSINFO
 
 //***************************************************************************
 // Theme Style
@@ -852,30 +852,47 @@ var varEPGimagesPath_2 = "/video0/epgimages/";
    ColumnSelected number=1,x=10,size=34,color={selColor},width=40;
    Column         number=1,x=10,width=40;
 
+   // vdr
+
+   ColumnSelected condition={colCount} = 7,number=2,size=34,color={selColor},width=140;
+   Column         condition={colCount} = 7,number=2,width=140;
+
    // channel
 
-   ColumnSelected condition={colCount} > 3,number=2,size=34,color={selColor},width=120;
-   Column         condition={colCount} > 3,number=2,width=120;
+   ColumnSelected condition={colCount} = 6,number=2,size=34,color={selColor},width=90;
+   Column         condition={colCount} = 6,number=2,width=90;
+
+   ColumnSelected condition={colCount} = 7,number=3,size=34,color={selColor},width=90;
+   Column         condition={colCount} = 7,number=3,width=90;
 
    // day
 
-   ColumnSelected condition={colCount} > 3,number=3,size=34,color={selColor},width=205;
-   Column         condition={colCount} > 3,number=3,width=205;
+   ColumnSelected condition={colCount} = 6,number=3,size=34,color={selColor},width=180;
+   Column         condition={colCount} = 6,number=3,width=180;
+
+   ColumnSelected condition={colCount} = 7,number=4,size=34,color={selColor},width=180;
+   Column         condition={colCount} = 7,number=4,width=180;
 
    // time start
 
-   ColumnSelected condition={colCount} > 3,number=4size=34,color={selColor},width=160;
-   Column         condition={colCount} > 3,number=4,width=160;
+   ColumnSelected condition={colCount} = 6,number=4size=34,color={selColor},width=150;
+   Column         condition={colCount} = 6,number=4,width=150;
+
+   ColumnSelected condition={colCount} = 7,number=5size=34,color={selColor},width=150;
+   Column         condition={colCount} = 7,number=5,width=150;
 
    // time stop
 
-   ColumnSelected condition={colCount} > 3,number=5,size=34,color={selColor},width=160;
-   Column         condition={colCount} > 3,number=5,width=160;
+   ColumnSelected condition={colCount} = 6,number=5,size=34,color={selColor},width=150;
+   Column         condition={colCount} = 6,number=5,width=150;
 
    // name
 
-   ColumnSelected condition={colCount} > 3,number=6,size=34,color={selColor},width=630,dots=yes;
-   Column         condition={colCount} > 3,number=6,width=630,dots=yes;
+   ColumnSelected condition={colCount} = 6,number=6,size=34,color={selColor},dots=yes;
+   Column         condition={colCount} = 6,number=6,dots=yes;
+
+   ColumnSelected condition={colCount} = 7,number=7,size=34,color={selColor},dots=yes;
+   Column         condition={colCount} = 7,number=7,dots=yes;
 
 //***************************************************************************
 // Invent Details
